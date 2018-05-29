@@ -27,4 +27,4 @@ or
 
 ## Example
 
-`GITHUB_TOKEN=<cool_token_here> ./bin/shipit -o manifoldco -r engineering -v v2.0.2 -f tmpl/issue.txt`
+`GITHUB_TOKEN=<cool_token_here> ./bin/shipit -o manifoldco -r engineering -v 2.0.2 -f tmpl/issue.txt`
