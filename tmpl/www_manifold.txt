@@ -1,0 +1,35 @@
+{{define "Title" }} 🚀 🤖 Manifold.co Release {{.Release}} {{end}}
+{{define "Message"}}
+Release v{{.Release}}
+
+Release Criteria
+
+- [ ] Change Log prepared
+- [ ] Tag v{{.Release}}-rc.0 (or rc.1 ,etc as needed) to trigger build and container
+- [ ] All builds passing  [travis.ci](https://travis-ci.com/manifoldco/manifold-www)
+- [ ] verify tag is on [hub.docker.com](https://hub.docker.com/r/arigato/manifold-www/tags/)
+- [ ] Release to stage:
+  ```
+  ./releaser.sh -p manifold-www -e stage {{.Release}}-rc.0 # the rc may need to be different
+  kubectl get deploy -w # watch the deployments in another terminal
+  ./deploy stage
+  ```
+- [ ]  QA Checklist Complete
+
+*If proceeding to Prod deploy, tag without RC*
+
+- [ ] Tag for release as tag v{{.Release}}
+- [ ] Redo the release steps above, but against prod
+  ```
+  ./releaser.sh -p manifold-www -e prod {{.Release}}
+  kubectl get deploy -w # watch the deployments in another terminal
+  ./deploy prod
+  ```
+- [ ] QA Checklist Complete
+
+Changelog
+```
+git shortlog <previous_release>..v{{.Release}} --no-merges
+```
+*You may have to use a previous version to see commits up to this*
+{{end}}

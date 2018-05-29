@@ -1,4 +1,4 @@
-{{define "Title" }} 🚀 🤖 Release {{.Release}} {{end}}
+{{define "Title" }} 🚀 🤖 Marketplace Release {{.Release}} {{end}}
 {{define "Assignee"}}plaroche{{end}}
 {{define "Message"}}
 Release {{.Release}}
