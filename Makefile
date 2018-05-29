@@ -59,10 +59,10 @@ $(LINTERS): vendor
 # Building
 #################################################
 
-build: bin/gogithub
+build: bin/shipit
 
-bin/gogithub: vendor gogithub.go
-	$(GO_BUILD) -o bin/gogithub
+bin/shipit: vendor shipit.go
+	$(GO_BUILD) -o bin/shipit
 
 .PHONY: build
 
@@ -71,4 +71,4 @@ bin/gogithub: vendor gogithub.go
 #################################################
 
 clean:
-	rm bin/gogithub
+	rm bin/shipit
