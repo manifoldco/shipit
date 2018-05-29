@@ -19,12 +19,12 @@ Release Criteria
 - [ ] Apply degraffdb (and migrations) **legacy infra code process to be followed**
 - [ ]  QA Checklist Complete (using newly built, on tag, testers in marketplace) (make sure you have all required keys in your local manifold context)
   - [ ] cd to marketplace and `make tools` in marketplace
-  - [ ]  `manifold run -m -p marketplace-stage ./tools/bin/provision-tester -e https://stage.manifold.co -p degraffdb-generators-stage --internal-auth-secret=<the_one_from_manifold> --stripe-key=<the_one_from_manifold>`
+  - [ ]  `manifold run -t manifold -p marketplace-stage ./tools/bin/provision-tester -e https://stage.manifold.co -p degraffdb-generators-stage --internal-auth-secret=<the_one_from_manifold> --stripe-key=<the_one_from_manifold>`
    **Expected outcome**: success on all ops
-  - [ ]  `manifold run -m -p marketplace-stage ./tools/bin/provision-tester -e https://stage.manifold.co -p degraffdb-generators-stage -o static --skip-billing-profile --internal-auth-secret=<the_one_from_manifold> --stripe-key=<the_one_from_manifold>`
+  - [ ]  `manifold run -t manifold -p marketplace-stage ./tools/bin/provision-tester -e https://stage.manifold.co -p degraffdb-generators-stage -o static --skip-billing-profile --internal-auth-secret=<the_one_from_manifold> --stripe-key=<the_one_from_manifold>`
    **Expected outcome**: first op success, resize fails: `putOperationsIdUnauthorized  unauthorized: Billing profile required for paid plans`
   - [ ] view oauth2 client ID and secret `kubectl get secret manifold-oauth2 -o jsonpath --template '{.data.OAUTHPAIR}' | base64 -D` or `manifold export -t manifold -p degraffdb-stage`
-  - [ ]  `manifold run -t manifold -p degraffdb-stage -- ./tools/bin/connector-tester -e https://stage.manifold.co -p degraffdb-generators-stage`
+  - [ ]  `manifold run -t manifold -p degraffdb-stage -- ./tools/bin/connector-tester -e https://stage.manifold.co -p degraffdb-generators-stage` --internal-auth-secret=<the_one_from_manifold> --stripe-key=<the_one_from_manifold>`
    **Expected outcome**: success on all ops
   - [ ] check service listing on [stage.m.co](https://www.stage.manifold.co/services)
 - [ ]  All bugs fixed or triaged
@@ -34,9 +34,9 @@ Release Criteria
 
 - [ ] Redo the release steps above, but against prod
 - [ ] QA Checklist Complete
-- [ ] provisioning degraff via dashboard
+- [ ] provisioning a resource via dashboard
 - [ ] check service listing on [m.co](https://www.manifold.co/services)
-- [ ] check sso, inspect element, on the provisioned degraffdb
+- [ ] check sso, inspect element, on the provisioned resource
 
 Changelog
 ```
