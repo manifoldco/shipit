@@ -49,34 +49,6 @@ func getToken() (string, error) {
 	return val, nil
 }
 
-func getAllCommitID(owner, repo string, token string) ([]string, error) {
-
-	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: token},
-	)
-	tc := oauth2.NewClient(oauth2.NoContext, ts)
-	client := github.NewClient(tc)
-	opt := &github.IssueListOptions{}
-	ctx := context.Background()
-
-	issueBody := []string{}
-	for {
-		issues, resp, err := client.Issues.List(ctx, true, opt)
-		if err != nil {
-			return nil, err
-		}
-		for _, issue := range issues {
-			issueBody = append(issueBody, issue.GetBody())
-		}
-
-		if resp.NextPage == 0 {
-			break
-		}
-		opt.Page = resp.NextPage
-	}
-	return issueBody, nil
-}
-
 func makeIssue(owner, repo, version, templateFile, token string) (string, error) {
 
 	ts := oauth2.StaticTokenSource(
