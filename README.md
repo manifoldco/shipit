@@ -1,5 +1,8 @@
-# ShipIt
-experiment creating an issue in GitHub via go
+# Shipit
+Create release issues in GitHub
+
+## Should be:
+a bot, yup, one day I will be
 
 
 ### build
