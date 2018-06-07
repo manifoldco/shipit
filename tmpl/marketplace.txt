@@ -24,7 +24,7 @@ Release Criteria
   - [ ]  `manifold run -t manifold -p marketplace-stage ./tools/bin/provision-tester -e https://stage.manifold.co -p ant-hill-stage -o fire-red --skip-billing-profile --internal-auth-secret=<the_one_from_manifold> --stripe-key=<the_one_from_manifold>`
    **Expected outcome**: first op success, resize fails: `putOperationsIdUnauthorized  unauthorized: Billing profile required for paid plans`
   - [ ] view `ANT_HILL` OAuth tokens or `manifold export -t manifold -p degraffdb-stage | grep ANT_HILL`
-  - [ ]  `manifold run -t manifold -p ant-hill-stage -- ./tools/bin/connector-tester -e https://stage.manifold.co -p ant-hill-stage --internal-auth-secret=<the_one_from_manifold> --stripe-key=<the_one_from_manifold>`
+  - [ ]  `manifold run -t manifold -p marketplace-stage -- ./tools/bin/connector-tester -e https://stage.manifold.co -p ant-hill-stage --internal-auth-secret=<the_one_from_manifold> --stripe-key=<the_one_from_manifold>`
    **Expected outcome**: success on all ops
   - [ ] check service listing on [stage.m.co](https://www.stage.manifold.co/services)
 - [ ]  All bugs fixed or triaged
