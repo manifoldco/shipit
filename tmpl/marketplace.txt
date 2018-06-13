@@ -14,7 +14,7 @@ Release Criteria
   ./releaser.sh -p marketplace -e stage {{.Release}}-rc.0 # the rc may need to be different
   git diff
   kubectl get deploy -w # watch the deployments in another terminal
-  ./deploy stage
+  ./deploy.sh stage
   ```
 - [ ] Apply degraffdb (and migrations) **legacy infra code process to be followed**
 - [ ]  QA Checklist Complete (using newly built, on tag, testers in marketplace) (make sure you have all required keys in your local manifold context)
