@@ -1,0 +1,19 @@
+
+{{define "Title" }} 🚀 🎛 Dashboard Release {{.Release}} {{end}}
+{{define "Assignee"}}plaroche{{end}}
+{{define "Message"}}
+Release {{.Release}}
+
+| Integration      | Version     |
+|:--------------|:-----------|
+| Fondant          | **TODO**       |
+| Mayflower      | **TODO**         |
+
+Release Criteria
+
+- [ ] All builds passing
+- [ ] Change Log prepared
+- [ ] Change Log verified
+- [ ] All bugs fixed or triaged
+- [ ] Deployed and Released
+{{end}}
