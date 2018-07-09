@@ -22,8 +22,9 @@ func main() {
 	var (
 		owner      = flag.String("o", "owner", "owner name")
 		repository = flag.String("r", "repository", "repositoryName")
-		version    = flag.String("v", "version", "version tag")
+		version    = flag.String("v", "version", "version tag / provider name")
 		fileName   = flag.String("f", "tmpl/issue.txt", "template file")
+		label      = flag.String("l", "ops", "label for issue")
 	)
 	flag.Parse()
 
@@ -32,7 +33,7 @@ func main() {
 		panic(err)
 	}
 
-	url, err := makeIssue(*owner, *repository, *version, *fileName, token)
+	url, err := makeIssue(*owner, *repository, *version, *fileName, *label, token)
 	if err != nil {
 		panic(err)
 	}
@@ -49,7 +50,7 @@ func getToken() (string, error) {
 	return val, nil
 }
 
-func makeIssue(owner, repo, version, templateFile, token string) (string, error) {
+func makeIssue(owner, repo, version, templateFile, label, token string) (string, error) {
 
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},
@@ -84,7 +85,7 @@ func makeIssue(owner, repo, version, templateFile, token string) (string, error)
 		Title:    &title,
 		Body:     &message,
 		Assignee: &owner,
-		Labels:   &[]string{"ops"},
+		Labels:   &[]string{label},
 	}
 
 	issue, _, err := client.Issues.Create(ctx, owner, repo, body)
