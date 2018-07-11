@@ -19,12 +19,13 @@ type IssueMessage struct {
 }
 
 func main() {
+
 	var (
 		owner      = flag.String("o", "owner", "owner name")
 		repository = flag.String("r", "repository", "repositoryName")
 		version    = flag.String("v", "version", "version tag / provider name")
 		fileName   = flag.String("f", "tmpl/issue.txt", "template file")
-		label      = flag.String("l", "ops", "label for issue")
+		label      = flag.String("l", "ops", "labels to be used")
 	)
 	flag.Parse()
 
@@ -33,7 +34,7 @@ func main() {
 		panic(err)
 	}
 
-	url, err := makeIssue(*owner, *repository, *version, *fileName, *label, token)
+	url, err := makeIssue(*owner, *repository, *version, *fileName, token, *label)
 	if err != nil {
 		panic(err)
 	}
@@ -50,7 +51,7 @@ func getToken() (string, error) {
 	return val, nil
 }
 
-func makeIssue(owner, repo, version, templateFile, label, token string) (string, error) {
+func makeIssue(owner, repo, version, templateFile, token, label string) (string, error) {
 
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},

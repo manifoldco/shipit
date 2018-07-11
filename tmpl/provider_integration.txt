@@ -4,13 +4,15 @@
 Set up Provider {{.Release}} in Staging
 
 
-### Requirement -
+### Requirements
 1. slack channel: provider-{{.Release}}
+2. they have passed grafton tests locally
 
 ### Initial set up of partner:
 
-- [ ]  Provider has filled out google form
+- [ ]  Provider has filled out google [form](https://docs.google.com/spreadsheets/d/1R6hqJi8EI1OKIoyYfZW9AHg7oFud1OZ-saM9CC6xpDM/edit#gid=1958908319)
 - [ ]  Invite provider to Slack if able
+- [ ]  Provider has filled out a product plan document stored [here](https://drive.google.com/drive/folders/15Sz_bcaI1-bmAGrOrqA-gbzjeZzFdS0V)
 - [ ]  Provider logo has been added to S3
 - [ ]  Create team in Manifold (no need to add anyone yet)
     - [ ]  Get team id from web session (its in the api calls)
