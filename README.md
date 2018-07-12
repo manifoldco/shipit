@@ -22,7 +22,7 @@ or
 ### Args
 `-o` owner of the repo (i.e manifoldco)
 `-r` repository name (i.e. engineering)
-`-v` version tag to use when making the ticket (i.e. v2.0.2)
+`-v` version tag to use when making the ticket (i.e. v2.0.2) (used for Provider name in provider template)
 `-f` filename of the template (optional: tmpl/issue.txt)
 
 ## Example
