@@ -15,6 +15,7 @@ Release Criteria
   ./deploy stage
   ```
 - [ ]  QA Checklist Complete
+- [ ] In slack, run `/deployed manifold-www v{{.Release}}-rc.0 stage` (or whatever rc.N it is)
 
 *If proceeding to Prod deploy, tag without RC*
 
@@ -26,6 +27,7 @@ Release Criteria
   ./deploy prod
   ```
 - [ ] QA Checklist Complete
+- [ ] In slack, run `/deployed manifold-www v{{.Release}} prod`
 
 Changelog
 ```

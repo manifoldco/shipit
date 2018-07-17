@@ -16,6 +16,7 @@ Release Criteria
   kubectl get deploy -w # watch the deployments in another terminal
   ./deploy.sh stage
   ```
+- [ ] In slack, run `/deployed panopticon v{{.Release}}-rc.0 stage` (or whatever rc.N it is)
 - [ ] Apply degraffdb (and migrations) **legacy infra code process to be followed**
 - [ ]  QA Checklist Complete (using newly built, on tag, testers in marketplace) (make sure you have all required keys in your local manifold context)
   - [ ] cd to marketplace and `make tools` in marketplace
@@ -29,6 +30,7 @@ Release Criteria
   - [ ] check service listing on [stage.m.co](https://www.stage.manifold.co/services)
 - [ ]  All bugs fixed or triaged
 
+
 *If proceeding to Prod deploy, tag without RC*
 
 
@@ -37,6 +39,9 @@ Release Criteria
 - [ ] provisioning a resource via dashboard
 - [ ] check service listing on [m.co](https://www.manifold.co/services)
 - [ ] check sso, inspect element, on the provisioned resource
+
+## Post deploy:
+- [ ] In slack, run `/deployed marketplace v{{.Release}} prod`
 
 Changelog
 ```

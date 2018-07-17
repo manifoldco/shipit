@@ -14,6 +14,9 @@ Release Criteria
 - [ ] All builds passing
 - [ ] Change Log prepared
 - [ ] Change Log verified
-- [ ] All bugs fixed or triaged
+- [ ] All bugs fixed or triaged (in rc)
+- [ ] In slack, run `/deployed dashboard v{{.Release}}-rc.N stage` (N = what rc you are on)
+- [ ] Tag for release {{.Release}}
 - [ ] Deployed and Released
+- [ ] In slack, run `/deployed dashboard v{{.Release}} prod`
 {{end}}
