@@ -16,7 +16,7 @@ Release Criteria
   kubectl get deploy -w # watch the deployments in another terminal
   ./deploy.sh stage
   ```
-- [ ] In slack, run `/deployed panopticon v{{.Release}}-rc.0 stage` (or whatever rc.N it is)
+- [ ] In slack, run `/deployed marketplace v{{.Release}}-rc.0 stage` (or whatever rc.N it is)
 - [ ] Apply degraffdb (and migrations) **legacy infra code process to be followed**
 - [ ]  QA Checklist Complete (using newly built, on tag, testers in marketplace) (make sure you have all required keys in your local manifold context)
   - [ ] cd to marketplace and `make tools` in marketplace
