@@ -1,21 +1,30 @@
-{{define "Title" }} 👫 🤖 Provider Integration - Set up staging records {{.Release}} {{end}}
+{{define "Title" }} 👫 🤖 Provider Integration - {{.Release}} {{end}}
 {{define "Assignee"}}plaroche{{end}}
 {{define "Message"}}
-Set up Provider {{.Release}} in Staging
+Set up Partner {{.Release}} in Manifold
 
 
-### Requirements
-1. slack channel: provider-{{.Release}}
-2. they have passed grafton tests locally
+## Issue is Ready if:
+1. Tech call has happened and we are kicking of Integration
+
+
+## Issue is In Progress when:
+1. Partner is working with Grafton tests locally
+
+
+### Get communication going -
+
+- [ ]  Create and invite into slack channel: provider-{{.Release}}
+- [ ]  Get Partner has filled out google [form](https://docs.google.com/spreadsheets/d/1R6hqJi8EI1OKIoyYfZW9AHg7oFud1OZ-saM9CC6xpDM/edit#gid=1958908319)
+- [ ]  Get Partner has filled out a product plan document stored [here](https://drive.google.com/drive/folders/15Sz_bcaI1-bmAGrOrqA-gbzjeZzFdS0V)
+
 
 ### Initial set up of partner:
 
-- [ ]  Provider has filled out google [form](https://docs.google.com/spreadsheets/d/1R6hqJi8EI1OKIoyYfZW9AHg7oFud1OZ-saM9CC6xpDM/edit#gid=1958908319)
-- [ ]  Invite provider to Slack if able
-- [ ]  Provider has filled out a product plan document stored [here](https://drive.google.com/drive/folders/15Sz_bcaI1-bmAGrOrqA-gbzjeZzFdS0V)
-- [ ]  Provider logo has been added to S3
+- [ ]  Add Partner Logo to S3 (280x280 transparent bg ideally)
 - [ ]  Create team in Manifold (no need to add anyone yet)
     - [ ]  Get team id from web session (its in the api calls)
+    - [ ] Invite in other squad-px team members (at least 1 other)
 - [ ]  Add Provider using donut in #data-entry-px ( referencing the team id )
 
 @donut create this provider:
@@ -98,9 +107,21 @@ features:
     value: ""
 ```
 
-### Final steps
+### Stage testing
 - [ ] invite in provider to their team
 - [ ] confirm in slack that the provider can access / see their stage product(s)
+
+## Move to In Review:
+
 - [ ] confirm the staging entries are correct in production
   - Make any changes if needed
+- [ ] Sign off stage
+
+### Testing on Production
+- [ ] make production copy of product and plans ( without -staging )
+- [ ] get provider to verify and then rotate / generate their credentials through grafton
+- [ ] once they've applied those creds to their deployment, test away!
+- [ ] when everything looks good to both parties, update the production product and plan records to be publicly available.
+
+## Close when Live on Production :-)
 {{end}}
