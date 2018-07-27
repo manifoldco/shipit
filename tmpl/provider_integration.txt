@@ -49,7 +49,7 @@ documentation_url: ""
 - [ ] Create the product using the self-onboarding form
 - [ ] Create the plans using the self-onboarding form
 
-``
+
 ### Stage testing
 - [ ] invite in provider to their team
 - [ ] confirm in slack that the provider can access / see their stage product(s)
