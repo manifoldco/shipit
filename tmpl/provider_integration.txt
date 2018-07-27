@@ -11,7 +11,6 @@ Set up Partner {{.Release}} in Manifold
 ## Issue is In Progress when:
 1. Partner is working with Grafton tests locally
 
-
 ### Get communication going -
 
 - [ ]  Create and invite into slack channel: provider-{{.Release}}
@@ -23,7 +22,7 @@ Set up Partner {{.Release}} in Manifold
 
 - [ ]  Add Partner Logo to S3 (280x280 transparent bg ideally)
 - [ ]  Create team in Manifold (no need to add anyone yet)
-    - [ ]  Get team id from web session (its in the api calls)
+    - [ ] Get team id from web session (its in the api calls)
     - [ ] Invite in other squad-px team members (at least 1 other)
 - [ ]  Add Provider using donut in #data-entry-px ( referencing the team id )
 
@@ -43,73 +42,19 @@ documentation_url: ""
     - [ ] Have on of them turn you into provider-admin
 - [ ]  Make sure they have filled out the product information doc template
   - If not, send it!
-- [ ]  Upload Product screen shots to s3
 
 ### Add product to stage
 
 - [ ] Via slack, share with the a " Product and Plan Collection" doc, once filled :
+- [ ] Create the product using the self-onboarding form
+- [ ] Create the plans using the self-onboarding form
 
-- [ ] Create the product yaml based on the product information doc
-- [ ] Submit the product yaml to donut through #data-entry-px on slack
-  - Use the provider ID returned from the earlier step (Example, please modify):
-
-@donut create this product:
-```yaml
-environment_stage: prod
-provider_id: "$1"
-label: "$2"
-name: "$3"
-state: "hidden"
-logo_url: "$4"
-tagline: "$5"
-value_props:
-- header: ""
-  body: ""
-images:
-  - ""
-support_email: "$6"
-documentation_url: "$7"
-terms:
-  url: "$8"
-  provided: true
-feature_types:
-- label:
-  name:
-  type:
-billing:
-  type: monthly-prorated
-  currency: usd
-integration:
-  base_url: "$9"
-  sso_url: "$10"
-  version: "v1"
-  features:
-```
-
-- [ ] Create the plan yaml for all the plans based on the product information doc
-- [ ] Submit the plan yaml to donut through #data-entry-px on slack
-  - Use the provider ID returned from the earlier step
-  - Use the product ID returned from the earlier step (example, please modify):
-
-@donut create this plan:
-```yaml
-environment_stage: prod
-provider_id: $1
-product_id: $2
-label: $3
-name: $4
-state: hidden
-regions: [ "$5" ]
-trial_days: $6
-cost: $7
-features:
-  - feature:
-    value: ""
-```
-
+``
 ### Stage testing
 - [ ] invite in provider to their team
 - [ ] confirm in slack that the provider can access / see their stage product(s)
+  - [ ] invite them to tho the `Manifold Provider Testing` team and create a
+  project for them to create and test products in. (Explain this to them in slack as well)
 
 ## Move to In Review:
 
@@ -120,8 +65,13 @@ features:
 ### Testing on Production
 - [ ] make production copy of product and plans ( without -staging )
 - [ ] get provider to verify and then rotate / generate their credentials through grafton
+`grafton credentials rotate --provider {{.Release}} --product PRODUCTNAME` (as an example)
 - [ ] once they've applied those creds to their deployment, test away!
 - [ ] when everything looks good to both parties, update the production product and plan records to be publicly available.
 
-## Close when Live on Production :-)
+### Clean up
+- [ ] Once live, de-provision anything they provisioned in `Manifold Provider Testing`
+- [ ] Remove them from `Manifold Provider Testing`
+
+## Close when Live on Production and clean up is done:-)
 {{end}}
