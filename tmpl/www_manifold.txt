@@ -11,7 +11,7 @@ Release Criteria
 - [ ] Release to stage:
   ```
   ./releaser.sh -p manifold-www -e stage {{.Release}}-rc.0 # the rc may need to be different
-  kubectl get deploy -w # watch the deployments in another terminal
+  kubectl get deploy -w --namespace websites # watch the deployments in another terminal
   ./deploy stage
   ```
 - [ ]  QA Checklist Complete
