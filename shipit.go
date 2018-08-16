@@ -21,10 +21,10 @@ type IssueMessage struct {
 func main() {
 
 	var (
-		owner      = flag.String("o", "owner", "owner name")
-		repository = flag.String("r", "repository", "repositoryName")
-		version    = flag.String("v", "version", "version tag / provider name")
-		fileName   = flag.String("f", "tmpl/issue.txt", "template file")
+		owner      = flag.String("o", "manifoldco", "owner name")
+		repository = flag.String("r", "engineering", "repositoryName")
+		version    = flag.String("v", "", "version tag / provider name")
+		fileName   = flag.String("f", "tmpl/marketplace.txt", "template file")
 		label      = flag.String("l", "ops", "labels to be used")
 	)
 	flag.Parse()
