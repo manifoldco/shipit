@@ -4,18 +4,23 @@
 Set up Partner {{.Release}} in Manifold
 
 
-## Issue is Ready if:
-1. Tech call has happened and we are kicking of Integration
+## Required
+1. Tech call has happened and we are kicking of Integration or we are going straight to slack
 
+## Backlog:
+- [x]  Create and invite into slack channel: provider-{{.Release}}
 
-## Issue is In Progress when:
+## Ready if:
+1. Partner is in slack and active
+
+## In Progress when:
 1. Partner is working with Grafton tests locally
+2. A manifold engineer is assigned and owns running the integration work
 
 ### Get communication going -
 
-- [ ]  Create and invite into slack channel: provider-{{.Release}}
-- [ ]  Get Partner has filled out google [form](https://docs.google.com/spreadsheets/d/1R6hqJi8EI1OKIoyYfZW9AHg7oFud1OZ-saM9CC6xpDM/edit#gid=1958908319)
-- [ ]  Get Partner has filled out a product plan document stored [here](https://drive.google.com/drive/folders/15Sz_bcaI1-bmAGrOrqA-gbzjeZzFdS0V)
+- [ ]  Get Partner to fill out google [form](https://docs.google.com/spreadsheets/d/1R6hqJi8EI1OKIoyYfZW9AHg7oFud1OZ-saM9CC6xpDM/edit#gid=1958908319)
+- [ ]  Get Partner to fill out a product plan document stored [here](https://drive.google.com/drive/folders/15Sz_bcaI1-bmAGrOrqA-gbzjeZzFdS0V)
 
 
 ### Initial set up of partner:
