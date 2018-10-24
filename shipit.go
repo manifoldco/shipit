@@ -29,6 +29,10 @@ func main() {
 	)
 	flag.Parse()
 
+	if *version == "" {
+		panic("missing version")
+	}
+
 	token, err := getToken()
 	if err != nil {
 		panic(err)
@@ -56,9 +60,11 @@ func makeIssue(owner, repo, version, templateFile, token, label string) (string,
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},
 	)
-	tc := oauth2.NewClient(oauth2.NoContext, ts)
-	client := github.NewClient(tc)
+
 	ctx := context.Background()
+
+	tc := oauth2.NewClient(ctx, ts)
+	client := github.NewClient(tc)
 
 	t, err := template.ParseFiles(templateFile)
 	if err != nil {

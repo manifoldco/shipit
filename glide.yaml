@@ -1,4 +1,0 @@
-package: github.com/manifoldco/shipit
-import:
-- package: github.com/google/go-github/github
-- package: golang.org/x/oauth2
